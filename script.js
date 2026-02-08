@@ -57,7 +57,7 @@ const TIMELINE_DATA = [
     title: "Started EMSI (IIR Engineering)",
     description: "Began IIR engineering studies at EMSI, focusing on software development, networking, and IT systems.",
     type: "education",
-    image: "journey-2023.jpg"
+    image: "image00002-1024x684.jpeg"
   },
   {
     date: "2024",
@@ -84,21 +84,24 @@ const CERTIFICATES = [
     issuer: "Online Course",
     year: "2025",
     image: "cc++.png",
-    pdf: "Coursera C++-POO.pdf"
+    pdf: "Coursera C++-POO.pdf",
+    qr: "frame (2).png"
   },
   {
     title: "Web Development (HTML/CSS/JS)",
     issuer: "Online Course",
     year: "2025",
     image: "js.png",
-    pdf: "Coursera js.pdf"
+    pdf: "Coursera js.pdf",
+    qr: "frame.png"
   },
   {
     title: "Linux Fundamentals",
     issuer: "Online Course",
     year: "2025",
     image: "unix.png",
-    pdf: "Coursera unix.pdf"
+    pdf: "Coursera unix.pdf",   
+    qr: "frame (1).png"
   }
 ];
 
@@ -304,9 +307,27 @@ function renderCertificates() {
     card.appendChild(preview);
 
     const body = el("div", "cert-body");
-    body.appendChild(el("h3", "cert-title", cert.title));
-    body.appendChild(el("p", "cert-issuer muted", cert.issuer));
-    body.appendChild(el("span", "cert-year", cert.year));
+    const topRow = el("div", "cert-top-row");
+    const info = el("div", "cert-info");
+
+    info.appendChild(el("h3", "cert-title", cert.title));
+    info.appendChild(el("p", "cert-issuer muted", cert.issuer));
+    info.appendChild(el("span", "cert-year", cert.year));
+    topRow.appendChild(info);
+
+    if (cert.qr) {
+      const qrWrap = el("div", "cert-qr-wrap");
+      const qrImg = document.createElement("img");
+      qrImg.src = cert.qr;
+      qrImg.alt = `${cert.title} verification QR code`;
+      qrImg.className = "cert-qr";
+      qrImg.loading = "lazy";
+      qrWrap.appendChild(qrImg);
+      qrWrap.appendChild(el("span", "cert-qr-label", "Scan to verify"));
+      topRow.appendChild(qrWrap);
+    }
+
+    body.appendChild(topRow);
 
     if (cert.pdf) {
       const dl = el("a", "btn ghost cert-dl", "⬇ Download PDF");

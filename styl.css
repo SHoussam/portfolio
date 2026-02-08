@@ -934,6 +934,18 @@ p, h1, h2, h3, .muted, a, span {
   gap: 4px;
 }
 
+.cert-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cert-info {
+  min-width: 0;
+  flex: 1;
+}
+
 .cert-title {
   margin: 0;
   font-size: 1.05rem;
@@ -956,8 +968,32 @@ p, h1, h2, h3, .muted, a, span {
   margin: 4px 0 8px;
 }
 
+.cert-qr-wrap {
+  margin: 0;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.cert-qr {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  object-fit: cover;
+}
+
+.cert-qr-label {
+  font-size: .75rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
 .cert-dl {
-  margin-top: auto;
+  margin-top: 12px;
   font-size: .88rem;
   padding: 8px 12px;
   text-align: center;
