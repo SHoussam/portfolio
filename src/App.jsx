@@ -7,6 +7,8 @@ import {
   useRevealOnScroll
 } from "./components/ui/scrole";
 
+const assetUrl = (relativePath) => `${import.meta.env.BASE_URL}${relativePath}`;
+
 const PROFILE = {
   name: "Houssam Salek",
   title: "PFA Intern | Web Development, Linux & AI Assistant Design",
@@ -14,7 +16,7 @@ const PROFILE = {
   email: "houssamsalek0707@gmail.com",
   github: "https://github.com/dororo911",
   linkedin: "https://www.linkedin.com/in/houssam-salek",
-  cv: "/pdf/cv.pdf",
+  cv: assetUrl("pdf/cv.pdf"),
   whatsapp: {
     number: "212694294897",
     message: "Hi, I saw your portfolio and would like to chat!"
@@ -43,7 +45,7 @@ const TIMELINE_DATA = [
     description:
       "Obtained the scientific baccalaureate diploma, building a strong foundation in mathematics and physics.",
     type: "education",
-    image: "/img/images.jpg"
+    image: assetUrl("img/images.jpg")
   },
   {
     date: "09/2023",
@@ -51,7 +53,7 @@ const TIMELINE_DATA = [
     description:
       "Began IIR engineering studies at EMSI, focusing on software development, networking, and IT systems.",
     type: "education",
-    image: "/img/image00002-1024x684.jpeg"
+    image: assetUrl("img/image00002-1024x684.jpeg")
   },
   {
     date: "2024",
@@ -77,25 +79,25 @@ const CERTIFICATES = [
     title: "Certificate in C++ Programming",
     issuer: "Online Course",
     year: "2025",
-    image: "/img/cc++.png",
-    pdf: "/pdf/Coursera C++-POO.pdf",
-    qr: "/img/frame (2).png"
+    image: assetUrl("img/cc++.png"),
+    pdf: assetUrl("pdf/Coursera C++-POO.pdf"),
+    qr: assetUrl("img/frame (2).png")
   },
   {
     title: "Web Development (HTML/CSS/JS)",
     issuer: "Online Course",
     year: "2025",
-    image: "/img/js.png",
-    pdf: "/pdf/Coursera js.pdf",
-    qr: "/img/frame.png"
+    image: assetUrl("img/js.png"),
+    pdf: assetUrl("pdf/Coursera js.pdf"),
+    qr: assetUrl("img/frame.png")
   },
   {
     title: "Linux Fundamentals",
     issuer: "Online Course",
     year: "2025",
-    image: "/img/unix.png",
-    pdf: "/pdf/Coursera unix.pdf",
-    qr: "/img/frame (1).png"
+    image: assetUrl("img/unix.png"),
+    pdf: assetUrl("pdf/Coursera unix.pdf"),
+    qr: assetUrl("img/frame (1).png")
   }
 ];
 
@@ -105,7 +107,7 @@ const PROJECTS = [
     description:
       "PHP/MySQL web application with authentication, role-based access, admin dashboard, media catalog, wishlist system, and secure CRUD operations using PDO.",
     tags: ["PHP", "MySQL", "PDO", "HTML", "CSS", "Linux"],
-    image: "/img/php.png",
+    image: assetUrl("img/php.png"),
     speed: 0.3
   },
   {
@@ -113,7 +115,7 @@ const PROJECTS = [
     description:
       "C++ console application showcasing advanced OOP concepts, multi-role authentication, subscription management, borrowing logic, and persistent storage.",
     tags: ["C++", "OOP", "STL", "File I/O"],
-    image: "/img/c++.png",
+    image: assetUrl("img/c++.png"),
     speed: 0.2
   },
   {
@@ -121,7 +123,7 @@ const PROJECTS = [
     description:
       "Modular Bash-based Linux audit tool packaged as a Debian .deb, including system reports, process monitoring, and user/permission management.",
     tags: ["Linux", "Bash", "Debian", "System Administration"],
-    image: "/img/Linux.jpg",
+    image: assetUrl("img/Linux.jpg"),
     speed: 0.4
   }
 ];

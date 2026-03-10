@@ -3,9 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-
   "homepage": "https://houssamsalek.me/portfolio",
-
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,13 +11,11 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-
   "dependencies": {
     "framer-motion": "^12.35.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
-
   "devDependencies": {
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
