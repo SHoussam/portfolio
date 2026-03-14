@@ -1,6 +1,5 @@
 
 import { useEffect, useMemo, useState } from "react";
-import { Timeline } from "./components/ui/timeline";
 import {
   useBottomBarScroll,
   useProgressRingOnScroll,
@@ -37,42 +36,6 @@ const EXPERIENCE = [
     title: "IIR Engineering Student - EMSI",
     details:
       "3rd-year engineering student focused on software engineering, web development, system programming, and practical academic projects."
-  }
-];
-
-const TIMELINE_DATA = [
-  {
-    date: "2022",
-    title: "Baccalaureat scientifique",
-    description:
-      "Obtained the scientific baccalaureate diploma, building a strong foundation in mathematics and physics.",
-    type: "education",
-    image: assetUrl("img/images.jpg")
-  },
-  {
-    date: "09/2023",
-    title: "Started EMSI (IIR Engineering)",
-    description:
-      "Began IIR engineering studies at EMSI, focusing on software development, networking, and IT systems.",
-    type: "education",
-    image: assetUrl("img/image00002-1024x684.jpeg")
-  },
-  {
-    date: "2024",
-    title: "Academic & Personal Projects",
-    description:
-      "Worked on multiple projects involving C programming, web development (PHP/MySQL, HTML/CSS/JS), and Linux system administration.",
-    type: "project",
-    image: "https://img-c.udemycdn.com/course/480x270/6132141_520f_2.jpg"
-  },
-  {
-    date: "2025",
-    title: "PFA Internship Search",
-    description:
-      "Actively seeking a PFA internship starting 01/07, focused on backend development, web systems, and automation.",
-    type: "experience",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaTqQq0U8rSMkyEcc70cBk92cGOwaL4Jon-w&s"
   }
 ];
 
@@ -135,7 +98,6 @@ const NAV_ITEMS = [
   "skills",
   "projects",
   "experience",
-  "journey",
   "certificates",
   "contact"
 ];
@@ -153,30 +115,6 @@ export default function App() {
   useRevealOnScroll();
   useProgressRingOnScroll(waUrl);
   useBottomBarScroll();
-
-  const journeyTimelineData = useMemo(
-    () =>
-      TIMELINE_DATA.map((item) => ({
-        title: item.date,
-        content: (
-          <div>
-            <h4 className="text-neutral-900 dark:text-neutral-100 text-sm md:text-xl font-semibold mb-2">{item.title}</h4>
-            <p className="text-neutral-700 dark:text-neutral-300 text-xs md:text-sm font-normal mb-6">{item.description}</p>
-            {item.image ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <img
-                  src={item.image}
-                  alt={`${item.title} preview`}
-                  loading="lazy"
-                  className="rounded-lg object-cover h-32 md:h-52 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08)]"
-                />
-              </div>
-            ) : null}
-          </div>
-        )
-      })),
-    []
-  );
 
   useEffect(() => {
     if (theme) document.documentElement.setAttribute("data-theme", theme);
@@ -680,10 +618,6 @@ export default function App() {
               </div>
             ))}
           </div>
-        </section>
-
-        <section id="journey" className="section velocity-skew">
-          <Timeline data={journeyTimelineData} />
         </section>
 
         <section id="certificates" className="section">
