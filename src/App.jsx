@@ -12,7 +12,7 @@ const HERO_BG_IMAGE_OPPOSITE = assetUrl("img/ana.png");
 
 const PROFILE = {
   name: "Houssam Salek",
-  title: "PFA Intern | Web Development, Linux & AI Assistant Design",
+  title: "Computer Science Student | Frontend Developer",
   location: "Tanger-Tetouan-Al Hoceima, Morocco",
   email: "houssamsalek0707@gmail.com",
   github: "https://github.com/dororo911",
@@ -71,7 +71,9 @@ const PROJECTS = [
     title: "LahekLibrary - Web Library Management System",
     description:
       "PHP/MySQL web application with authentication, role-based access, admin dashboard, media catalog, wishlist system, and secure CRUD operations using PDO.",
-    tags: ["PHP", "MySQL", "PDO", "HTML", "CSS", "Linux"],
+    technologies: ["PHP", "MySQL", "PDO", "HTML", "CSS", "Linux"],
+    github: "https://github.com/dororo911",
+    live: null,
     image: assetUrl("img/php.png"),
     speed: 0.3
   },
@@ -79,7 +81,9 @@ const PROJECTS = [
     title: "Multimedia Library Management System (C++)",
     description:
       "C++ console application showcasing advanced OOP concepts, multi-role authentication, subscription management, borrowing logic, and persistent storage.",
-    tags: ["C++", "OOP", "STL", "File I/O"],
+    technologies: ["C++", "OOP", "STL", "File I/O"],
+    github: "https://github.com/dororo911",
+    live: null,
     image: assetUrl("img/c++.png"),
     speed: 0.2
   },
@@ -87,9 +91,29 @@ const PROJECTS = [
     title: "SysAuditKit - Linux System Audit Toolkit",
     description:
       "Modular Bash-based Linux audit tool packaged as a Debian .deb, including system reports, process monitoring, and user/permission management.",
-    tags: ["Linux", "Bash", "Debian", "System Administration"],
+    technologies: ["Linux", "Bash", "Debian", "System Administration"],
+    github: "https://github.com/dororo911",
+    live: null,
     image: assetUrl("img/Linux.jpg"),
     speed: 0.4
+  }
+];
+
+const SKILL_GROUPS = [
+  {
+    title: "Frontend",
+    description: "Building accessible and responsive user interfaces.",
+    items: ["React", "JavaScript", "HTML", "CSS", "Tailwind"]
+  },
+  {
+    title: "Programming",
+    description: "Core software development and system workflow skills.",
+    items: ["C", "Git", "Linux"]
+  },
+  {
+    title: "Tools",
+    description: "Daily tools used to build, test, and ship projects.",
+    items: ["VS Code", "GitHub", "Vite"]
   }
 ];
 
@@ -405,8 +429,9 @@ export default function App() {
               Hi, I&apos;m <span className="accent">Houssam Salek</span>
             </h1>
             <p className="sub">
-              I build clean, practical projects: PHP/MySQL web apps, C++ OOP systems, and Linux/Bash tools.
-              I enjoy solving real problems and shipping useful solutions.
+              I&apos;m Houssam Salek, a computer science student at EMSI passionate about web development and
+              building interactive applications. I enjoy creating clean user interfaces and solving problems
+              through code.
             </p>
 
             <div className="cta">
@@ -430,7 +455,7 @@ export default function App() {
               <div className="profile-head">
                 <div>
                   <h3 className="profile-name">{PROFILE.name}</h3>
-                  <p className="muted">3rd year EMSI • Junior Developer</p>
+                  <p className="muted">Computer science student at EMSI</p>
                 </div>
 
                 <div className="avatar" aria-hidden="true">
@@ -468,9 +493,9 @@ export default function App() {
           </div>
         </section>
 
-        <section id="about" className="section velocity-skew">
+        <section id="about" className="section velocity-skew" aria-labelledby="about-title">
           <div className="section-head line-draw">
-            <h2>About</h2>
+            <h2 id="about-title">About Me</h2>
           </div>
 
           <div className="grid-2">
@@ -480,17 +505,15 @@ export default function App() {
                 I am a <span className="about-type-value">{aboutText}</span>
               </p>
               <p>
-                Hi! I&apos;m Houssam Salek, a 3rd-year IIR engineering student at EMSI. I&apos;m currently looking for a PFA
-                internship starting July 2026.
-                <br></br>
-                <br></br>I enjoy building web applications with PHP and MySQL, working on Linux, and learning new
-                technologies through hands-on projects.
+                I&apos;m Houssam Salek, a computer science student at EMSI passionate about web development and
+                building interactive applications. I enjoy creating clean user interfaces and solving problems through
+                code. Currently I&apos;m focused on improving my skills in React and modern web technologies.
               </p>
 
               <ul className="list">
-                <li>✅ Strong analytical mindset</li>
-                <li>✅ Teamwork & communication</li>
-                <li>✅ Comfortable with C++ OOP and web development</li>
+                <li>Strong analytical mindset</li>
+                <li>Teamwork and communication</li>
+                <li>Hands-on with React, JavaScript, HTML, CSS, and C</li>
               </ul>
             </div>
 
@@ -524,70 +547,70 @@ export default function App() {
           </div>
         </section>
 
-        <section id="skills" className="section">
+        <section id="skills" className="section" aria-labelledby="skills-title">
           <div className="section-head line-draw">
-            <h2>Skills</h2>
-            <p className="muted">My main technologies and tools.</p>
+            <h2 id="skills-title">Skills</h2>
+            <p className="muted">Technologies and tools grouped by category.</p>
           </div>
 
           <div className="skills">
-            <div className="skill card tilt-card reveal-scale">
-              <div className="tilt-card-inner">
-                <h3>Backend / Programming</h3>
-                <div className="pills">
-                  {["PHP", "MySQL", "PDO", "C++", "OOP"].map((x) => (
-                    <span className="pill" key={x}>
-                      {x}
-                    </span>
-                  ))}
+            {SKILL_GROUPS.map((group, i) => (
+              <article key={group.title} className={`skill card tilt-card reveal-scale stagger-${(i % 5) + 1}`}>
+                <div className="tilt-card-inner">
+                  <h3>{group.title}</h3>
+                  <div className="pills">
+                    {group.items.map((item) => (
+                      <span className="pill" key={item}>
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="muted small">{group.description}</p>
                 </div>
-                <p className="muted small">CRUD systems, authentication, file handling, and clean code.</p>
-              </div>
-            </div>
-
-            <div className="skill card tilt-card reveal-scale">
-              <div className="tilt-card-inner">
-                <h3>Frontend</h3>
-                <div className="pills">
-                  {["HTML", "CSS", "JavaScript"].map((x) => (
-                    <span className="pill" key={x}>
-                      {x}
-                    </span>
-                  ))}
-                </div>
-                <p className="muted small">Responsive layouts, animations, and interactive UI.</p>
-              </div>
-            </div>
-
-            <div className="skill card tilt-card reveal-scale">
-              <div className="tilt-card-inner">
-                <h3>Tools / Systems</h3>
-                <div className="pills">
-                  {["Linux", "Bash", "Git", "VS Code"].map((x) => (
-                    <span className="pill" key={x}>
-                      {x}
-                    </span>
-                  ))}
-                </div>
-                <p className="muted small">System scripting, automation, and version control.</p>
-              </div>
-            </div>
+              </article>
+            ))}
           </div>
         </section>
 
-        <section id="projects" className="section velocity-skew">
+        <section id="projects" className="section velocity-skew" aria-labelledby="projects-title">
           <div className="section-head line-draw">
-            <h2>Projects</h2>
-            <p className="muted">Some of my best projects built with real technologies.</p>
+            <h2 id="projects-title">Projects</h2>
+            <p className="muted">Selected projects with technologies, repository links, and demos.</p>
           </div>
 
           <div className="projects">
             {PROJECTS.map((p, i) => (
-              <div key={p.title} className={`project-card reveal-scale stagger-${(i % 5) + 1}`}>
+              <article key={p.title} className={`project-card card reveal-scale stagger-${(i % 5) + 1}`}>
                 <div className="project-visual parallax-layer" data-speed={p.speed}>
-                  <img src={p.image} alt={p.title} />
+                  <img src={p.image} alt={`${p.title} project preview`} loading="lazy" />
                 </div>
-              </div>
+
+                <div className="project-body">
+                  <h3 className="project-title">{p.title}</h3>
+                  <p className="project-description muted">{p.description}</p>
+
+                  <div className="project-tech">
+                    {p.technologies.map((tech) => (
+                      <span key={`${p.title}-${tech}`} className="badge">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="project-links">
+                    <a className="link" href={p.github} target="_blank" rel="noreferrer">
+                      GitHub Repository
+                    </a>
+                    {p.live ? (
+                      <a className="link" href={p.live} target="_blank" rel="noreferrer">
+                        Live Demo
+                      </a>
+                    ) : (
+                      <span className="muted small">Live demo not available yet</span>
+                    )}
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
         </section>
@@ -647,9 +670,9 @@ export default function App() {
           </div>
         </section>
 
-        <section id="contact" className="section velocity-skew">
+        <section id="contact" className="section velocity-skew" aria-labelledby="contact-title">
           <div className="section-head line-draw">
-            <h2>Contact</h2>
+            <h2 id="contact-title">Contact</h2>
             <p className="muted">Feel free to contact me for internship, freelance, or collaboration opportunities.</p>
           </div>
 
@@ -660,18 +683,33 @@ export default function App() {
 
               <div className="contact-list">
                 <div className="contact-item">
+                  <span className="link-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+                      <path d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1.1l-9 5.4-9-5.4V5Zm0 3.4V19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.4l-8.48 5.08a1 1 0 0 1-1.04 0L3 8.4Z" />
+                    </svg>
+                  </span>
                   <span className="contact-label">Email</span>
                   <a className="link" href={`mailto:${PROFILE.email}`} data-tooltip={PROFILE.email}>
                     {PROFILE.email}
                   </a>
                 </div>
                 <div className="contact-item">
+                  <span className="link-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+                      <path d="M12 .5C5.65.5.5 5.65.5 12.01c0 5.09 3.29 9.4 7.85 10.93.57.1.78-.25.78-.55 0-.27-.01-1.16-.01-2.1-3.19.69-3.86-1.35-3.86-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.69.08-.69 1.15.08 1.76 1.19 1.76 1.19 1.02 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.71 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.77.11 3.06.74.8 1.19 1.83 1.19 3.09 0 4.44-2.69 5.41-5.25 5.7.41.35.77 1.04.77 2.1 0 1.52-.01 2.75-.01 3.12 0 .3.21.66.79.55A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+                    </svg>
+                  </span>
                   <span className="contact-label">GitHub</span>
                   <a className="link" href={PROFILE.github} target="_blank" rel="noreferrer" data-tooltip="github.com/dororo911">
                     github.com/dororo911
                   </a>
                 </div>
                 <div className="contact-item">
+                  <span className="link-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+                      <path d="M20.45 20.45h-3.56v-5.58c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26ZM5.33 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.55V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0Z" />
+                    </svg>
+                  </span>
                   <span className="contact-label">LinkedIn</span>
                   <a className="link" href={PROFILE.linkedin} target="_blank" rel="noreferrer" data-tooltip="linkedin.com/in/houssam-salek">
                     linkedin.com/in/houssam-salek

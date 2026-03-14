@@ -630,12 +630,11 @@ p, h1, h2, h3, .muted, a, span {
   position: relative;
   overflow: hidden;
   min-height: 0;
-  aspect-ratio: 16 / 10;
   padding: 0;
   border-radius: 20px;
   border: 1px solid rgba(148, 163, 184, 0.22);
-  background: transparent;
-  box-shadow: none;
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow: var(--shadow);
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -655,7 +654,8 @@ p, h1, h2, h3, .muted, a, span {
 
 /* Project thumbnail visual and parallax support */
 .project-visual {
-  height: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
   min-height: 0;
   overflow: hidden;
   border-radius: inherit;
@@ -676,6 +676,36 @@ p, h1, h2, h3, .muted, a, span {
 }
 .project-card:hover .project-visual img {
   transform: scale(1.03);
+}
+
+.project-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-title {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.35;
+}
+
+.project-description {
+  margin: 0;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 /* Ensure hardware-accelerated movement for parallax layers */
@@ -1192,7 +1222,10 @@ p, h1, h2, h3, .muted, a, span {
 
 .contact-list{ display:flex; flex-direction: column; gap: 10px; margin-top: 12px; }
 .contact-item{
-  display:flex; justify-content: space-between; gap: 10px;
+  display:grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 10px;
   padding: 10px 12px;
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -1207,6 +1240,10 @@ p, h1, h2, h3, .muted, a, span {
 }
 
 .contact-label{ color: var(--muted); font-weight: 900; }
+
+.contact-item .link {
+  justify-self: end;
+}
 
 .footer{
   border-top: 1px solid var(--line);
@@ -1511,8 +1548,7 @@ p, h1, h2, h3, .muted, a, span {
     grid-template-columns: 1fr !important;
   }
 
-  .project-card,
-  .project-card{ aspect-ratio: 16 / 12; }
+  .project-visual{ aspect-ratio: 16 / 11; }
 
   /* Hero section */
   .hero{
