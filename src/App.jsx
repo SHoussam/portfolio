@@ -5,126 +5,18 @@ import {
   useProgressRingOnScroll,
   useRevealOnScroll
 } from "./components/ui/scrole";
-
-const assetUrl = (relativePath) => `${import.meta.env.BASE_URL}${relativePath}`;
-const HERO_BG_IMAGE = assetUrl("img/HS.png");
-const HERO_BG_IMAGE_OPPOSITE = assetUrl("img/ana.png");
-
-const PROFILE = {
-  name: "Houssam Salek",
-  title: "Computer Science Student | Frontend Developer",
-  location: "Tanger-Tetouan-Al Hoceima, Morocco",
-  email: "houssamsalek0707@gmail.com",
-  github: "https://github.com/dororo911",
-  linkedin: "https://www.linkedin.com/in/houssam-salek",
-  cv: assetUrl("pdf/cv.pdf"),
-  whatsapp: {
-    number: "212694294897",
-    message: "Hi, I saw your portfolio and would like to chat!"
-  }
-};
-
-const EXPERIENCE = [
-  {
-    date: "2026",
-    title: "PFA Internship - Searching",
-    details:
-      "Currently looking for a PFA internship starting July 2026 in backend development, web systems, Linux environments, and automation."
-  },
-  {
-    date: "2023 - Present",
-    title: "IIR Engineering Student - EMSI",
-    details:
-      "3rd-year engineering student focused on software engineering, web development, system programming, and practical academic projects."
-  }
-];
-
-const CERTIFICATES = [
-  {
-    title: "Certificate in C++ Programming",
-    issuer: "Online Course",
-    year: "2025",
-    image: assetUrl("img/cc++.png"),
-    pdf: assetUrl("pdf/Coursera C++-POO.pdf"),
-    qr: assetUrl("img/frame (2).png")
-  },
-  {
-    title: "Web Development (HTML/CSS/JS)",
-    issuer: "Online Course",
-    year: "2025",
-    image: assetUrl("img/js.png"),
-    pdf: assetUrl("pdf/Coursera js.pdf"),
-    qr: assetUrl("img/frame.png")
-  },
-  {
-    title: "Linux Fundamentals",
-    issuer: "Online Course",
-    year: "2025",
-    image: assetUrl("img/unix.png"),
-    pdf: assetUrl("pdf/Coursera unix.pdf"),
-    qr: assetUrl("img/frame (1).png")
-  }
-];
-
-const PROJECTS = [
-  {
-    title: "LahekLibrary - Web Library Management System",
-    description:
-      "PHP/MySQL web application with authentication, role-based access, admin dashboard, media catalog, wishlist system, and secure CRUD operations using PDO.",
-    technologies: ["PHP", "MySQL", "PDO", "HTML", "CSS", "Linux"],
-    github: "https://github.com/dororo911",
-    live: null,
-    image: assetUrl("img/php.png"),
-    speed: 0.3
-  },
-  {
-    title: "Multimedia Library Management System (C++)",
-    description:
-      "C++ console application showcasing advanced OOP concepts, multi-role authentication, subscription management, borrowing logic, and persistent storage.",
-    technologies: ["C++", "OOP", "STL", "File I/O"],
-    github: "https://github.com/dororo911",
-    live: null,
-    image: assetUrl("img/c++.png"),
-    speed: 0.2
-  },
-  {
-    title: "SysAuditKit - Linux System Audit Toolkit",
-    description:
-      "Modular Bash-based Linux audit tool packaged as a Debian .deb, including system reports, process monitoring, and user/permission management.",
-    technologies: ["Linux", "Bash", "Debian", "System Administration"],
-    github: "https://github.com/dororo911",
-    live: "https://houssamsalek.me/Aim/",
-    image: assetUrl("img/aime.png"),
-    speed: 0.4
-  }
-];
-
-const SKILL_GROUPS = [
-  {
-    title: "Frontend",
-    description: "Building accessible and responsive user interfaces.",
-    items: ["React", "JavaScript", "HTML", "CSS", "TypeScript"]
-  },
-  {
-    title: "Programming",
-    description: "Core software development and system workflow skills.",
-    items: ["C", "C++", "Java", "Python", "PHP"]
-  },
-  {
-    title: "Tools",
-    description: "Daily tools used to build, test, and ship projects.",
-    items: ["VS Code", "Git", "GitHub", "Vite", "Linux"]
-  }
-];
-
-const NAV_ITEMS = [
-  "about",
-  "skills",
-  "projects",
-  "experience",
-  "certificates",
-  "contact"
-];
+import {
+  assetUrl,
+  AVATAR_IMAGE,
+  CERTIFICATES,
+  EXPERIENCE,
+  HERO_BG_IMAGE,
+  HERO_BG_IMAGE_OPPOSITE,
+  NAV_ITEMS,
+  PROFILE,
+  PROJECTS,
+  SKILL_GROUPS
+} from "./data/portfolioData";
 
 export default function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "");
@@ -148,11 +40,11 @@ export default function App() {
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setAboutText("Web Developer");
+      setAboutText("Backend Developer");
       return undefined;
     }
 
-    const words = ["Web Developer", "Backend Learner", "Linux Enthusiast"];
+    const words = ["Backend Developer", "Full-Stack Developer", "Linux Enthusiast"];
     let wordIndex = 0;
     let charIndex = 0;
     let deleting = false;
@@ -424,28 +316,33 @@ export default function App() {
 
         <section className="section hero">
           <div className="hero-left">
-            <p className="tag">EMSI • Software Student • Developer</p>
+            <p className="tag">Computer Science Student • Backend & Full-Stack</p>
             <h1>
-              Hi, I&apos;m <span className="accent">Houssam Salek</span>
+              Houssam <span className="accent">Salek</span>
             </h1>
             <p className="sub">
-              I&apos;m Houssam Salek, a computer science student at EMSI passionate about web development and
-              building interactive applications. I enjoy creating clean user interfaces and solving problems
-              through code.
+              Computer Science student at EMSI focused on backend development and full-stack web applications. I build
+              practical software with PHP, MySQL, PDO, JavaScript, and React, and I enjoy shipping clean, reliable features.
             </p>
 
             <div className="cta">
               <a className="btn" href="#projects" data-tooltip="See Projects">
-                See Projects
+                View Projects
               </a>
               <a className="btn ghost" href="#about" data-tooltip="About Me">
                 About Me
+              </a>
+              <a className="btn ghost" href={PROFILE.cv} target="_blank" rel="noreferrer" data-tooltip="Download CV">
+                Download CV
+              </a>
+              <a className="btn ghost" href="#contact" data-tooltip="Contact Me">
+                Contact Me
               </a>
             </div>
 
             <div className="meta">
               <div className="chip">📍 Morocco</div>
-              <div className="chip">💻 PHP • MySQL • C++</div>
+              <div className="chip">💻 PHP • MySQL • React</div>
               <div className="chip">🐧 Linux • Bash • Git</div>
             </div>
           </div>
@@ -455,11 +352,11 @@ export default function App() {
               <div className="profile-head">
                 <div>
                   <h3 className="profile-name">{PROFILE.name}</h3>
-                  <p className="muted">Computer science student at EMSI</p>
+                  <p className="muted">Computer Science student at EMSI</p>
                 </div>
 
                 <div className="avatar" aria-hidden="true">
-                  <img src={assetUrl("img/WhatsApp Image 2026-01-15 at 20.11.08.jpeg")} alt="Houssam Salek" className="houssam" />
+                  <img src={AVATAR_IMAGE} alt="Houssam Salek" className="houssam" />
                 </div>
               </div>
 
@@ -505,23 +402,23 @@ export default function App() {
                 I am a <span className="about-type-value">{aboutText}</span>
               </p>
               <p>
-                I&apos;m Houssam Salek, a computer science student at EMSI passionate about web development and
-                building interactive applications. I enjoy creating clean user interfaces and solving problems through
-                code. Currently I&apos;m focused on improving my skills in React and modern web technologies.
+                Backend-focused Computer Science student who likes designing clean APIs, working with relational databases,
+                and delivering features end-to-end. I learn fast, communicate clearly, and enjoy collaborating to ship
+                reliable software.
               </p>
 
               <ul className="list">
-                <li>Strong analytical mindset</li>
-                <li>Teamwork and communication</li>
-                <li>Hands-on with React, JavaScript, HTML, CSS, and C</li>
+                <li>Strong problem-solving and debugging mindset</li>
+                <li>Hands-on with PHP, MySQL, PDO, React, and JavaScript</li>
+                <li>Comfortable in Linux, Bash, and Git workflows</li>
               </ul>
             </div>
 
             <div className="card blur-section">
               <h3>What I&apos;m looking for</h3>
               <p>
-                I&apos;m looking for a PFA internship (or junior opportunity) where I can contribute to real projects,
-                improve my backend skills, and grow as a developer.
+                I&apos;m seeking a PFA internship or junior role in backend, full-stack, or software engineering where I can
+                contribute to real products, strengthen my backend skills, and keep learning in a professional environment.
               </p>
 
               <div className="mini-grid">
@@ -544,6 +441,25 @@ export default function App() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+        
+        <section id="experience" className="section">
+          <div className="section-head line-draw">
+            <h2>Experience & Education</h2>
+            <p className="muted">Academic track and internship objective.</p>
+          </div>
+
+          <div className="timeline">
+            {EXPERIENCE.map((item, i) => (
+              <div key={item.title} className={`timeline-item card reveal-scale stagger-${(i % 5) + 1}`}>
+                <div className="timeline-date">{item.date}</div>
+                <div className="timeline-content">
+                  <h3>{item.title}</h3>
+                  <p>{item.details}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -587,9 +503,16 @@ export default function App() {
 
                 <div className="project-body">
                   <div className="project-links">
-                    <a className="link" href={p.live || p.github} target="_blank" rel="noreferrer">
-                      {p.live ? "Live Site" : "GitHub Repository"}
-                    </a>
+                    {p.github && (
+                      <a className="link" href={p.github} target="_blank" rel="noreferrer">
+                        GitHub Repository
+                      </a>
+                    )}
+                    {p.live && (
+                      <a className="link" href={p.live} target="_blank" rel="noreferrer">
+                        Live Demo
+                      </a>
+                    )}
                   </div>
                 </div>
               </article>
@@ -597,37 +520,18 @@ export default function App() {
           </div>
         </section>
 
-        <section id="experience" className="section">
-          <div className="section-head line-draw">
-            <h2>Experience</h2>
-            <p className="muted">My academic and professional timeline.</p>
-          </div>
-
-          <div className="timeline">
-            {EXPERIENCE.map((item, i) => (
-              <div key={item.title} className={`timeline-item card reveal-scale stagger-${(i % 5) + 1}`}>
-                <div className="timeline-date">{item.date}</div>
-                <div className="timeline-content">
-                  <h3>{item.title}</h3>
-                  <p>{item.details}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        
 
         <section id="certificates" className="section">
           <div className="section-head line-draw">
             <h2>Certificates</h2>
-            <p className="muted">Courses and certifications I&apos;ve completed.</p>
+            <p className="muted">Selected certifications supporting my core skills.</p>
           </div>
 
           <div className="cert-grid">
             {CERTIFICATES.map((cert, i) => (
               <div key={cert.title} className={`cert-card card reveal-scale stagger-${(i % 5) + 1}`}>
-                <div className="cert-preview">
-                  <img src={cert.image} alt={cert.title} loading="lazy" />
-                </div>
+                
 
                 <div className="cert-body">
                   <div className="cert-top-row">
@@ -655,13 +559,13 @@ export default function App() {
         <section id="contact" className="section velocity-skew" aria-labelledby="contact-title">
           <div className="section-head line-draw">
             <h2 id="contact-title">Contact</h2>
-            <p className="muted">Feel free to contact me for internship, freelance, or collaboration opportunities.</p>
+            <p className="muted">Let&apos;s connect about internships, collaborations, or questions.</p>
           </div>
 
           <div className="grid-2">
             <div className="card blur-section">
               <h3>Let&apos;s talk</h3>
-              <p className="muted">Send me a message and I&apos;ll get back to you as soon as possible.</p>
+              <p className="muted">Send me a message and I&apos;ll respond quickly.</p>
 
               <div className="contact-list">
                 <div className="contact-item">
