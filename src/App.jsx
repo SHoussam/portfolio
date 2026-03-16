@@ -266,7 +266,7 @@ export default function App() {
 
       <header className="header">
         <a className="logo" href="#top" aria-label="Go to top" data-tooltip="Go to top">
-          <span className="logo-dot"></span> HS
+          <img src={assetUrl("img/HS.png")} alt="Houssam Salek monogram logo" className="logo-img" width="30" />
         </a>
 
         <nav className="nav" aria-label="Main navigation">
