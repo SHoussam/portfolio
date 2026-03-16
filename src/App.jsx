@@ -271,8 +271,8 @@ export default function App() {
 
         <nav className="nav" aria-label="Main navigation">
           {NAV_ITEMS.map((item) => (
-            <a key={item} href={`#${item}`}>
-              {item[0].toUpperCase() + item.slice(1)}
+            <a key={item.id} href={`#${item.id}`}>
+              {item.label}
             </a>
           ))}
         </nav>
@@ -288,8 +288,8 @@ export default function App() {
 
         <div className={`mobile-menu ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen}>
           {NAV_ITEMS.map((item) => (
-            <a key={item} href={`#${item}`} onClick={() => setMenuOpen(false)}>
-              {item[0].toUpperCase() + item.slice(1)}
+            <a key={item.id} href={`#${item.id}`} onClick={() => setMenuOpen(false)}>
+              {item.label}
             </a>
           ))}
         </div>
@@ -297,8 +297,8 @@ export default function App() {
 
       <nav className="bottom-bar" id="bottomBar" aria-label="Bottom navigation">
         {NAV_ITEMS.map((item) => (
-          <a key={`bottom-${item}`} href={`#${item}`}>
-            {item[0].toUpperCase() + item.slice(1)}
+          <a key={`bottom-${item.id}`} href={`#${item.id}`}>
+            {item.label}
           </a>
         ))}
       </nav>
