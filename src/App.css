@@ -206,8 +206,10 @@ a{ color: inherit; text-decoration: none; }
   gap: 22px;
   align-items: center;
   padding-top: 18px;
+  padding-bottom: 0;
   position: relative;
   isolation: isolate;
+  z-index: 2;
 }
 
 .floating-ana {
@@ -263,9 +265,21 @@ body.experience-active .floating-hs {
   z-index: 1;
 }
 
+.hero-right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-right: 4px;
+}
+
 #experience {
   position: relative;
   isolation: isolate;
+}
+
+#about{
+  position: relative;
+  z-index: 1;
 }
 
 #experience > * {
@@ -496,26 +510,24 @@ p, h1, h2, h3, .muted, a, span {
   gap: 12px;
 }
 
-.profile-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 25px 80px rgba(124, 92, 255, 0.2);
-}
 
-.profile-card:hover .avatar {
-  transform: rotate(5deg) scale(1.1);
-  box-shadow: 0 0 30px rgba(124, 92, 255, 0.4);
-}
+
+
 
 .avatar{
-  width: clamp(100px, 12vw, 124px);
-  height: clamp(100px, 12vw, 124px);
-  border-radius: 22px;
+  width: clamp(180px, 24vw, 280px);
+  height: clamp(180px, 24vw, 280px);
   display:flex; align-items:center; justify-content:center;
   font-weight: 900;
   font-size: 1.55rem;
-  background: rgba(124,92,255,.22);
-  border: 1px solid rgba(124,92,255,.35);
-  transition: all 0.4s ease;
+  border-radius: 26px;
+  overflow: hidden;
+  position: relative;
+  transform: translateY(42px);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border: 1px solid var(--line);
+  box-shadow: 0 22px 44px rgba(0,0,0,0.42), 0 12px 32px rgba(124,92,255,0.18);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .houssam{
@@ -524,6 +536,21 @@ p, h1, h2, h3, .muted, a, span {
   object-fit: cover;
   border-radius: inherit;
   display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-right .avatar::after{
+  content: '';
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  bottom: -20px;
+  height: 34px;
+  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.38), transparent 62%);
+  filter: blur(14px);
+  opacity: 0.8;
+  z-index: 0;
 }
 
 .profile-links{
@@ -1464,6 +1491,8 @@ p, h1, h2, h3, .muted, a, span {
 
 @media (max-width: 980px){
   .hero{ grid-template-columns: 1fr; }
+  .hero-right{ justify-content: center; padding-right: 0; }
+  .hero-right .avatar{ transform: translateY(22px); }
   .floating-ana{
     width: min(78vw, 620px);
     height: min(94vh, 760px);
@@ -1574,6 +1603,14 @@ p, h1, h2, h3, .muted, a, span {
     gap: 16px;
     display: flex;
     flex-direction: column-reverse;
+  }
+
+  .hero-right{ width: 100%; }
+  .hero-right .avatar{
+    width: clamp(150px, 48vw, 220px);
+    height: clamp(150px, 48vw, 220px);
+    transform: none;
+    margin: 0 auto;
   }
 
   .floating-ana{

@@ -316,22 +316,17 @@ export default function App() {
 
         <section className="section hero">
           <div className="hero-left">
-            <p className="tag">Computer Science Student • Backend & Full-Stack</p>
-            <h1>
+            <p className="tag">Computer Science Student</p>
+            <h1 className="h">
               Houssam <span className="accent">Salek</span>
             </h1>
-            <p className="sub">
-              Computer Science student at EMSI focused on backend development and full-stack web applications. I build
-              practical software with PHP, MySQL, PDO, JavaScript, and React, and I enjoy shipping clean, reliable features.
-            </p>
+            
 
             <div className="cta">
               <a className="btn" href="#projects" data-tooltip="See Projects">
                 View Projects
               </a>
-              <a className="btn ghost" href="#about" data-tooltip="About Me">
-                About Me
-              </a>
+             
               <a className="btn ghost" href={PROFILE.cv} target="_blank" rel="noreferrer" data-tooltip="Download CV">
                 Download CV
               </a>
@@ -342,52 +337,21 @@ export default function App() {
 
             <div className="meta">
               <div className="chip">📍 Morocco</div>
-              <div className="chip">💻 PHP • MySQL • React</div>
-              <div className="chip">🐧 Linux • Bash • Git</div>
+        
             </div>
           </div>
 
           <div className="hero-right">
-            <div className="card profile-card">
-              <div className="profile-head">
-                <div>
-                  <h3 className="profile-name">{PROFILE.name}</h3>
-                  <p className="muted">Computer Science student at EMSI</p>
-                </div>
+            
 
                 <div className="avatar" aria-hidden="true">
                   <img src={AVATAR_IMAGE} alt="Houssam Salek" className="houssam" />
                 </div>
               </div>
 
-              <div className="profile-links">
-                <a className="link profile-link-item" href={PROFILE.github} target="_blank" rel="noreferrer" data-tooltip="GitHub">
-                  <span className="link-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
-                      <path d="M12 .5C5.65.5.5 5.65.5 12.01c0 5.09 3.29 9.4 7.85 10.93.57.1.78-.25.78-.55 0-.27-.01-1.16-.01-2.1-3.19.69-3.86-1.35-3.86-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.69.08-.69 1.15.08 1.76 1.19 1.76 1.19 1.02 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.71 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.77.11 3.06.74.8 1.19 1.83 1.19 3.09 0 4.44-2.69 5.41-5.25 5.7.41.35.77 1.04.77 2.1 0 1.52-.01 2.75-.01 3.12 0 .3.21.66.79.55A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
-                    </svg>
-                  </span>
-                  <span className="link-text">GitHub</span>
-                </a>
-                <a className="link profile-link-item" href={PROFILE.linkedin} target="_blank" rel="noreferrer" data-tooltip="LinkedIn">
-                  <span className="link-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
-                      <path d="M20.45 20.45h-3.56v-5.58c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.26ZM5.33 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.55V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0Z" />
-                    </svg>
-                  </span>
-                  <span className="link-text">LinkedIn</span>
-                </a>
-                <a className="link profile-link-item" href={PROFILE.cv} target="_blank" rel="noreferrer" data-tooltip="Download CV">
-                  <span className="link-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
-                      <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7Zm0 1.5L17.5 7H14ZM8 11h8v1.5H8Zm0 3.5h8V16H8Zm0 3.5h5V19.5H8Z" />
-                    </svg>
-                  </span>
-                  <span className="link-text">Download CV</span>
-                </a>
-              </div>
-            </div>
-          </div>
+              
+            
+         
         </section>
 
         <section id="about" className="section velocity-skew" aria-labelledby="about-title">

@@ -2,7 +2,7 @@ export const assetUrl = (relativePath) => `${import.meta.env.BASE_URL}${relative
 
 export const HERO_BG_IMAGE = assetUrl("img/HS.png");
 export const HERO_BG_IMAGE_OPPOSITE = assetUrl("img/ana.png");
-export const AVATAR_IMAGE = assetUrl("img/WhatsApp Image 2026-01-15 at 20.11.08.jpeg");
+export const AVATAR_IMAGE = assetUrl("img/houssams Salek.png");
 
 export const PROFILE = {
   name: "Houssam Salek",
