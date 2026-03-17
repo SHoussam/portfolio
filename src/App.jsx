@@ -10,13 +10,12 @@ import {
   AVATAR_IMAGE,
   CERTIFICATES,
   EXPERIENCE,
-  HERO_BG_IMAGE,
-  HERO_BG_IMAGE_OPPOSITE,
   NAV_ITEMS,
   PROFILE,
   PROJECTS,
   SKILL_GROUPS
 } from "./data/portfolioData";
+import "./styles/heroHeader.css";
 
 export default function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "");
@@ -27,6 +26,9 @@ export default function App() {
   const waUrl = useMemo(() => {
     return `https://wa.me/${PROFILE.whatsapp.number}?text=${encodeURIComponent(PROFILE.whatsapp.message)}`;
   }, []);
+
+  const heroBgImage = theme === "light" ? assetUrl("img/HS.png") : assetUrl("img/HSB.png");
+  const heroBgImageOpposite = theme === "light" ? assetUrl("img/ana.png") : assetUrl("img/anad.png");
 
   useRevealOnScroll();
   useProgressRingOnScroll(waUrl);
@@ -264,19 +266,25 @@ export default function App() {
     <>
       <div id="mouse-glow"></div>
 
-      <header className="header">
+      <div
+        id="top"
+        className="hero-header-shell"
+        style={{
+          "--hero-bg-image": `url(${heroBgImage})`,
+          "--hero-bg-image-opposite": `url(${heroBgImageOpposite})`
+        }}
+      >
+        <div className="floating-ana" aria-hidden="true"></div>
+        <div className="floating-hs" aria-hidden="true"></div>
+
+        <header className="header">
+        
         <a className="logo" href="#top" aria-label="Go to top" data-tooltip="Go to top">
-          <img src={assetUrl("img/HS.png")} alt="Houssam Salek monogram logo" className="logo-img" width="30" />
+          <img src={assetUrl(theme === "light" ? "img/HS.png" : "img/HSB.png")} alt="Houssam Salek monogram logo" className="logo-img" width="30" />
         </a>
 
-        <nav className="nav" aria-label="Main navigation">
-          {NAV_ITEMS.map((item) => (
-            <a key={item.id} href={`#${item.id}`}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
+    
+      
         <div className="header-actions">
           <button className="btn ghost" type="button" aria-label="Toggle theme" onClick={() => setTheme(theme === "light" ? "" : "light")}>
             {theme === "light" ? "🌞" : "🌙"}
@@ -293,26 +301,9 @@ export default function App() {
             </a>
           ))}
         </div>
-      </header>
-
-      <nav className="bottom-bar" id="bottomBar" aria-label="Bottom navigation">
-        {NAV_ITEMS.map((item) => (
-          <a key={`bottom-${item.id}`} href={`#${item.id}`}>
-            {item.label}
-          </a>
-        ))}
-      </nav>
-
-      <main
-        id="top"
-        className="main"
-        style={{
-          "--hero-bg-image": `url(${HERO_BG_IMAGE})`,
-          "--hero-bg-image-opposite": `url(${HERO_BG_IMAGE_OPPOSITE})`
-        }}
-      >
-        <div className="floating-ana" aria-hidden="true"></div>
-        <div className="floating-hs" aria-hidden="true"></div>
+        
+       
+        </header>
 
         <section className="section hero">
           <div className="hero-left">
@@ -320,13 +311,13 @@ export default function App() {
             <h1 className="h">
               Houssam <span className="accent">Salek</span>
             </h1>
-            
+
 
             <div className="cta">
               <a className="btn" href="#projects" data-tooltip="See Projects">
                 View Projects
               </a>
-             
+
               <a className="btn ghost" href={PROFILE.cv} target="_blank" rel="noreferrer" data-tooltip="Download CV">
                 Download CV
               </a>
@@ -337,23 +328,29 @@ export default function App() {
 
             <div className="meta">
               <div className="chip">📍 Morocco</div>
-        
+
             </div>
           </div>
 
           <div className="hero-right">
-            
 
-                <div className="avatar" aria-hidden="true">
-                  <img src={AVATAR_IMAGE} alt="Houssam Salek" className="houssam" />
-                </div>
-              </div>
 
-              
-            
-         
+            <div className="avatar" aria-hidden="true">
+              <img src={AVATAR_IMAGE} alt="Houssam Salek" className="houssam" />
+            </div>
+          </div>
         </section>
+      </div>
 
+      <nav className="bottom-bar" id="bottomBar" aria-label="Bottom navigation">
+        {NAV_ITEMS.map((item) => (
+          <a key={`bottom-${item.id}`} href={`#${item.id}`}>
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <main className="main">
         <section id="about" className="section velocity-skew" aria-labelledby="about-title">
           <div className="section-head line-draw">
             <h2 id="about-title">About Me</h2>
