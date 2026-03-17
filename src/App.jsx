@@ -311,11 +311,11 @@ export default function App() {
 
         <section className="section hero">
           <div className="hero-left">
-            <p className="tag">Computer Science Student</p>
+            
             <h1 className="h">
               Houssam <span className="accent">Salek</span>
             </h1>
-
+            <p className="tag">Computer Science Student</p>
 
             <div className="cta">
               <a className="btn" href="#projects" data-tooltip="See Projects">
