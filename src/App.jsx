@@ -15,6 +15,7 @@ import {
   PROJECTS,
   SKILL_GROUPS
 } from "./data/portfolioData";
+import HeroWaveShader from "./components/ui/HeroWaveShader";
 import "./styles/heroHeader.css";
 
 export default function App() {
@@ -278,6 +279,7 @@ export default function App() {
           "--hero-bg-image-opposite": `url(${heroBgImageOpposite})`
         }}
       >
+        <HeroWaveShader />
         <div className="floating-ana" aria-hidden="true"></div>
         <div className="floating-hs" aria-hidden="true"></div>
 

@@ -8,8 +8,8 @@ export const PROFILE = {
   name: "Houssam Salek",
   title: "Computer Science Student | Backend & Full-Stack Developer",
   location: "Tanger-Tetouan-Al Hoceima, Morocco",
-  email: "houssamsalek0707@gmail.com",
-  github: "https://github.com/dororo911",
+  email: "houssam.salek@edu-emsi.ma",
+  github: "https://github.com/SHoussam",
   linkedin: "https://www.linkedin.com/in/houssam-salek",
   cv: assetUrl("pdf/cv.pdf"),
   whatsapp: {

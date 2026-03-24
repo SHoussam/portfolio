@@ -1,11 +1,12 @@
 
 :root{
-  --bg: #0f172a;
-  --panel: #10131a;
-  --text: #e9eefc;
-  --muted: #a9b2c7;
+  --bg: #09131f;
+  --panel: #101d2d;
+  --text: #e7f0fb;
+  --muted: #9db1c8;
   --line: rgba(255,255,255,.10);
-  --accent: #7c5cff;
+  --accent: #21b4a8;
+  --accent-2: #f29a4a;
   --shadow: 0 16px 50px rgba(0,0,0,.35);
   --radius: 18px;
   --max: 80%;
@@ -17,12 +18,13 @@
 }
 
 [data-theme="light"]{
-  --bg: #f8fafc;
-  --panel: #f4f6fb;
-  --text: #111827;
-  --muted: #4b5563;
+  --bg: #f5f7fa;
+  --panel: #edf2f7;
+  --text: #0f1b2d;
+  --muted: #445a74;
   --line: rgba(17,24,39,.12);
-  --accent: #703ac7;
+  --accent: #0e9f95;
+  --accent-2: #de7e2f;
   --shadow: 0 16px 50px rgba(17,24,39,.10);
   --tooltip-bg: rgba(255,255,255,0.95);
   --text-secondary: #111827;
@@ -46,9 +48,10 @@ html {
 
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-  background: radial-gradient(1000px 600px at 20% 0%, rgba(124,92,255,.12), transparent 62%),
-              radial-gradient(900px 500px at 100% 10%, rgba(124,92,255,.08), transparent 62%),
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Segoe UI", sans-serif;
+  background: radial-gradient(1000px 620px at 14% -10%, rgba(33,180,168,.18), transparent 60%),
+              radial-gradient(900px 500px at 94% 4%, rgba(242,154,74,.14), transparent 60%),
+              radial-gradient(700px 420px at 50% 100%, rgba(37,99,235,.12), transparent 60%),
               var(--bg);
   color: var(--text);
   line-height: 1.5;
@@ -179,7 +182,8 @@ a{ color: inherit; text-decoration: none; }
 }
 .section-head h2{
   margin: 0 0 6px;
-  font-size: 1.6rem;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  letter-spacing: 0.2px;
 }
 .section-head p{
   margin: 0;
@@ -285,21 +289,21 @@ body.experience-active .floating-hs {
   padding: 8px 10px;
   border-radius: 999px;
   color: var(--muted);
-  background: rgba(255,255,255,.03);
+  background: linear-gradient(120deg, rgba(33,180,168,.13), rgba(255,255,255,.03));
   transition: all 0.3s ease;
 }
 
 .chip:hover {
-  background: rgba(124, 92, 255, 0.1);
-  border-color: rgba(124, 92, 255, 0.3);
+  background: linear-gradient(120deg, rgba(33,180,168,.22), rgba(33,180,168,.07));
+  border-color: rgba(33,180,168,.45);
   transform: translateY(-2px);
 }
 
 .card{
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 16px;
+  padding: 18px;
   box-shadow: var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative;
@@ -307,7 +311,7 @@ body.experience-active .floating-hs {
 }
 
 .card:hover {
-  border-color: rgba(124, 92, 255, 0.3);
+  border-color: rgba(33,180,168,.35);
 }
 
 @media (hover: hover) {
@@ -324,7 +328,7 @@ body.experience-active .floating-hs {
   gap: 10px;
   padding: 10px 14px;
   border-radius: 999px;
-  background: var(--accent);
+  background: linear-gradient(120deg, var(--accent), #0e8e87);
   border: 1px solid rgba(255,255,255,.15);
   color: white;
   font-weight: 700;
@@ -354,7 +358,7 @@ body.experience-active .floating-hs {
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(124, 92, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(33,180,168,.32);
 }
 
 .btn.ghost{
@@ -364,8 +368,8 @@ body.experience-active .floating-hs {
 }
 
 .btn.ghost:hover {
-  background: rgba(124, 92, 255, 0.1);
-  border-color: rgba(124, 92, 255, 0.4);
+  background: rgba(33,180,168,.10);
+  border-color: rgba(33,180,168,.45);
   color: var(--accent);
 }
 
@@ -559,8 +563,8 @@ p, h1, h2, h3, .muted, a, span {
   min-height: 0;
   padding: 0;
   border-radius: 20px;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.02));
   box-shadow: var(--shadow);
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
@@ -575,8 +579,8 @@ p, h1, h2, h3, .muted, a, span {
 
 .project-card:hover{
   transform: translateY(-4px);
-  border-color: rgba(124, 92, 255, 0.55);
-  box-shadow: 0 14px 34px rgba(2, 6, 23, 0.35);
+  border-color: rgba(33,180,168,.62);
+  box-shadow: 0 14px 34px rgba(2, 6, 23, 0.35), 0 0 0 1px rgba(33,180,168,.28) inset;
 }
 
 /* Project thumbnail visual and parallax support */
@@ -1181,8 +1185,8 @@ p, h1, h2, h3, .muted, a, span {
 
 .contact-item:hover {
   transform: translateX(8px);
-  border-color: rgba(124, 92, 255, 0.4);
-  background: rgba(124, 92, 255, 0.05);
+  border-color: rgba(33,180,168,.45);
+  background: rgba(33,180,168,.08);
 }
 
 .contact-label{ color: var(--muted); font-weight: 900; }
@@ -1259,7 +1263,7 @@ p, h1, h2, h3, .muted, a, span {
   bottom: 0;
   width: 0;
   height: 2px;
-  background: var(--accent);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
   transition: width 1s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
@@ -1334,7 +1338,7 @@ p, h1, h2, h3, .muted, a, span {
   position: fixed;
   width: 20px;
   height: 20px;
-  border: 2px solid var(--accent);
+  border: 2px solid rgba(33,180,168,.9);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
@@ -1345,7 +1349,7 @@ p, h1, h2, h3, .muted, a, span {
 .cursor-glow.hovering {
   width: 50px;
   height: 50px;
-  background: rgba(124, 92, 255, 0.1);
+  background: rgba(33,180,168,.12);
 }
 
 /* Decrypt tooltip */
