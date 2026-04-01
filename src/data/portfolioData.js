@@ -104,14 +104,7 @@ technologies: ["HTML", "CSS", "JavaScript", "Game Logic"],
 
 export const EXPERIENCE = [
   
-      {
-     date: "July 2026",
-    title: "Backend / Full-Stack Internship Objective",
-    description:
-      "Actively seeking a PFA internship in backend, full-stack, or software engineering to contribute to real-world projects and strengthen production skills.",
-    type: "goal",
-  },
-  
+    
   {
     date: "2023 — Present",
     title: "EMSI — Ingénierie Informatique & Réseaux",
