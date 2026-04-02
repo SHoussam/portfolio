@@ -19,8 +19,8 @@ export default function Navbar() {
       }
       lastScrollY.current = currentY;
 
-      const heroSection = document.getElementById('hero');
-      if (heroSection) {
+      const heroSection = document.getElementById('about');
+      if (!heroSection) {
         const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
         setShowBottomNav(window.scrollY + 80 >= heroBottom);
       } else {
